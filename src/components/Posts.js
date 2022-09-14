@@ -1,6 +1,5 @@
 import  {React, Fragment, useEffect, useState} from "react";
 import { Link, useParams} from "react-router-dom";
-import { deletePosts } from "../api";
 import "../style.css"
 const Posts = ({posts, token, retrievePosts}) => {
     useEffect(() => {
@@ -8,12 +7,8 @@ const Posts = ({posts, token, retrievePosts}) => {
     }, [token])
     const [searchTerm, setSearchTerm] = useState('')
     function postMatches (post, text) {
-        const {title, description, location, price, willDeliver} = post
-        if(title.toLowerCase().includes(text.toLowerCase()) 
-        || description.toLowerCase().includes(text.toLowerCase()) 
-        || location.toLowerCase().includes(text.toLowerCase()) 
-        || price.toLowerCase().includes(text.toLowerCase()) 
-        || [willDeliver].toString().toLowerCase().includes(text.toLowerCase()))
+        const {title, description, willDeliver} = post
+        if(title.toLowerCase().includes(text.toLowerCase()) || description.toLowerCase().includes(text.toLowerCase()) || [willDeliver].toString().toLowerCase().includes(text.toLowerCase()))
         {
             return post
         }

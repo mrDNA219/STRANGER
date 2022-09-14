@@ -1,10 +1,12 @@
-import {React, useState} from "react";
+import {React, useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import {updatePost, deletePosts} from "../api"
 import "../style.css"
 
 
 const EditPost = ({ posts, token, navigate, retrievePosts}) => {
+    
+
     
     const { postID } = useParams();
 
