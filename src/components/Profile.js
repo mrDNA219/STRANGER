@@ -3,7 +3,7 @@ import '../style.css'
 const Profile = ({user, getMe}) => {
   useEffect(() => {
     getMe()
-  }, [user])
+  }, [])
     const messages = user.messages;
     const userID = user._id;
     if(messages){
