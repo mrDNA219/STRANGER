@@ -2,8 +2,12 @@ import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 import '../style.css'
 const Profile = ({user, getMe, posts}) => {
+  async function getMeHelper(){
+    const results = await getMe()
+    return results
+  }
   useEffect(() => {
-    getMe();
+    getMeHelper();
   }, [])
     const messages = user.messages;
     const userID = user._id;
@@ -64,7 +68,7 @@ const Profile = ({user, getMe, posts}) => {
                 
                 if (userID === fromUserID) {
                   return (
-                    <div className="messages-from-you" key={message._id}>
+                    <div className="messages-from-you" >
                       <p>
                       {message.content}
                       </p>
