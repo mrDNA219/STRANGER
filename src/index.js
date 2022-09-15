@@ -57,7 +57,7 @@ const App = () => {
                 <Route path='/' element={<Home />} />
                 <Route path='/posts' element={<Posts posts={posts} token={token} retrievePosts={retrievePosts} navigate={navigate}/>} />
                 <Route path='/posts/createpost' element={<CreatePost token={token} navigate={navigate} retrievePosts={retrievePosts}/>} />
-                <Route path='/profile' element={<Profile user={user} getMe={getMe}/>} />
+                <Route path='/profile' element={<Profile user={user} getMe={getMe} posts={posts}/>} />
                 <Route path='/register' element={<Register setToken={setToken} navigate={navigate} />} />
                 <Route path='/login' element={<Login setToken={setToken} navigate={navigate} />} />
                 <Route path='/posts/:postID' element={<SinglePostView posts={ posts } retrievePosts={retrievePosts} token={token} navigate={navigate} />} />

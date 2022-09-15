@@ -1,14 +1,41 @@
 import React, {useEffect} from "react";
+import { Link } from "react-router-dom";
 import '../style.css'
-const Profile = ({user, getMe}) => {
+const Profile = ({user, getMe, posts}) => {
   useEffect(() => {
-    getMe()
+    getMe();
   }, [])
     const messages = user.messages;
     const userID = user._id;
+   
+  
     if(messages){
       return (
         <div>
+          <div className="posts">
+          <h1>Your Posts!</h1>
+          {
+                posts.map((post) => {
+                    const {description, location, price, title, isAuthor, willDeliver, _id} = post;
+                    return (
+                      <div className="messages-from-you">
+                      { isAuthor ? (
+                    <div className="messages-from-you" >
+                        <h3>{title}</h3>
+                        <p>Description: {description}</p>
+                        <p>Location: {location}</p>
+                        <p>Price: {price}</p>
+                        <p>Will Deliver: {[willDeliver].toString()}</p>
+                        <Link to={`/posts/edit-post/${_id}`}>Edit</Link>
+                        <Link to={`/posts/${_id}`}>View</Link>
+                      </div> 
+                      ) : (null)
+                      }
+                      </div>
+                    )
+                })
+            }
+            </div>
           <div className="posts">
             <h1>Messages from other users!</h1>
             {

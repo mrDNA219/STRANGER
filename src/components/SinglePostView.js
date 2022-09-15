@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import { createMessage } from '../api';
 import "../style.css"
-const SendMessage = ({ postID, token, navigate }) => {
+const SendMessage = ({ postID, token, navigate}) => {
   const [message, setMessage] = useState({content: ''});
   async function addMessage() {
     await createMessage({postID, message, token})
