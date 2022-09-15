@@ -19,7 +19,7 @@ const Profile = ({user, getMe}) => {
                 
                 if (userID !== fromUserID) {
                   return (
-                    <div key={message._id}>
+                    <div className="messages-from-you" key={message._id}>
                       <p>From User: {username} </p>
                       <p>Message: {message.content}</p>
                       <p>Post Reference: {title}</p>

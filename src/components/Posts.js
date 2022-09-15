@@ -8,7 +8,10 @@ const Posts = ({posts, token, retrievePosts}) => {
     const [searchTerm, setSearchTerm] = useState('')
     function postMatches (post, text) {
         const {title, description, willDeliver} = post
-        if(title.toLowerCase().includes(text.toLowerCase()) || description.toLowerCase().includes(text.toLowerCase()) || [willDeliver].toString().toLowerCase().includes(text.toLowerCase()))
+        if(title.toLowerCase().includes(text.toLowerCase()) 
+        || description.toLowerCase().includes(text.toLowerCase()) 
+        || [willDeliver].toString().toLowerCase().includes(text.toLowerCase()))
+
         {
             return post
         }
